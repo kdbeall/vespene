@@ -28,7 +28,15 @@ WORKER_CONFIG="tutorial-pool=1"
 
 # rough OS detection for now; patches accepted!
 if [ "$OSTYPE" == "linux-gnu" ]; then
-   if [ -f /etc/redhat-release ]; then
+   if [ -x "$(command -v which)" ] && [ -f /etc/os-release ]; then
+      PIP=$(which pip3)
+      PYTHON=$(which python3)
+      . /etc/os-release
+      OS=$NAME
+      echo $PIP
+      echo $PYTHON
+      echo $OS
+   elif [ -f /etc/redhat-release ]; then
       DISTRO="redhat"
       PIP="/usr/local/bin/pip3.6"
       PYTHON="/usr/bin/python3.6"
@@ -36,7 +44,7 @@ if [ "$OSTYPE" == "linux-gnu" ]; then
       DISTRO="ubuntu"
       PYTHON="/usr/bin/python3"
       PIP="/usr/bin/pip3"
-   fi
+   fi      
 else
    echo "this OS may work with Vespene but we don't have setup automation for this just yet"
    DISTRO="?"
