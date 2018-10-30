@@ -36,14 +36,14 @@ Automation, "DevOps", Etc
 
 Projects in Vespene don't need to just represent source code. Projects can also launch automation scripts or software of any kind, whether being pulled from source control or just scripts defined in Vespene. These jobs can include security scans, cloud topology changes, database backups, launching functional tests, and more.
 
-While not all automation tools are SSH-powered, many are. Vespene can memorize important :ref:`ssh` keys and use them on your behalf, using built-in support for ssh-agent.
+While not all automation tools are SSH-powered, many are. Vespene can memorize important :ref:`ssh` and use them on your behalf, using built-in support for ssh-agent.
 
 Helping with the self-service magic, projects can ask interactive questions before they are launched with :ref:`launch_questions`, providing unprivileged users a simple interface to invoke specific tasks without needing full shell access. These questions can be drop-downs, multiple choice, or fill in the blank.
 
 Continuous Integration
 ======================
 
-Vespene features :ref:`pipelines` to construct complex CI/CD topologies - successful builds can trigger other builds, in serial or parallel.  Unlike some other CI tools, pipelines in Vespene are easily and graphically configured, and there is no custom DSL ("Domain Specific Language") to learn and debug. Use pipelines to implement fully automated deployment to production, or just stop at staging - whatever you feel comfortable with.
+Vespene features :ref:`pipelines` to construct complex CI/CD topologies - successful builds can trigger other builds, in serial or parallel.  Pipelines in Vespene are easily graphically configured, or membership can be defined by declarative .vespene files in YAML. There is no custom DSL ("Domain Specific Language") to learn and debug. Use pipelines to implement fully automated deployment to production, or just stop at staging - whatever you feel comfortable with.
 
 Admin-Focused
 =============

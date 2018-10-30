@@ -10,7 +10,8 @@ Pipelines
 Pipelines are a method of triggering one or more jobs, in stages, when other jobs complete.  A build system is already a "continuous integration" system, so pipelines extend it to become the hub of
 a "continuous deployment" system.
 
-Vespene pipelines are configured graphically, without any special language or data format.
+Vespene pipelines are created graphically, without any special language or data format, but projects may add themselves
+to pipelines using .vespene files (see :ref:`importing`) dynamically if so configured.
 
 Builds in a pipeline can intelligently pass variables between one another using :ref:`output_variables`.
 
@@ -29,7 +30,7 @@ As an example scenario, a Vespene admin such as yourself may create the followin
    * Deploy
 
 "Stage" is an unfortunately confusing for a name of a stage.  In the industry, we often mean "Stage" to refer to a staging environment that
-simulates production as "stage".  When we say "Vespene stage" here, we mean a pipeline *step*, like each stage of a rocket seperation.
+simulates production as "stage".  When we say "Vespene stage" here, we mean a pipeline *step*, like each stage of a rocket separation.
 
 Ok, so, if you ran the "tutorial_setup" command mentioned in the :ref:`tutorial`, you already have
 some stage names set up.  If not, you'll need to make some by going into the Stage tab as a superuser and adding some.
