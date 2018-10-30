@@ -29,18 +29,14 @@ WORKER_CONFIG="tutorial-pool=1"
 
 # rough OS detection for now; patches accepted!
 if [ "$OSTYPE" == "linux-gnu" ]; then
-   if [ -x "$(command -v which)" ] && [ -f /etc/os-release ]; then
-      PIP=$(which pip3)
-      PYTHON=$(which python3)
-      . /etc/os-release
-      OS=$NAME
-      echo $PIP
-      echo $PYTHON
-      echo $OS
-   elif [ -f /etc/redhat-release ]; then
+   if [ -f /etc/redhat-release ]; then
       DISTRO="redhat"
       PIP="/usr/local/bin/pip3.6"
       PYTHON="/usr/bin/python3.6"
+   elif [ -f /usr/bin/zypper ]; then
+      DISTRO="opensuse"
+      PYTHON="/usr/bin/python3"
+      PIP="/usr/bin/pip3"
    elif [ -f /usr/bin/apt ]; then
       DISTRO="ubuntu"
       PYTHON="/usr/bin/python3"

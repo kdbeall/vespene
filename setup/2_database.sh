@@ -13,6 +13,9 @@ echo "installing packages..."
 if [[ "$DISTRO" == "redhat" ]]; then
    yum -y install postgresql-server
    CONFIG="/var/lib/pgsql/data/pg_hba.conf"
+elif [[ "$DISTRO" == "opensuse" ]]; then
+   zypper install -y postgresql-server postgresql-contrib
+   CONFIG="/var/lib/pgsql/data/pg_hba.conf"
 elif [[ "$IDSTRO" == "ubuntu" ]]; then
    apt install -y postgresql postgresql-contrib
    CONFIG="/etc/postgresql/10/main/pg_hba.conf"
@@ -23,6 +26,8 @@ fi
 echo "initializing the database server..."
 if [[ "$DISTRO" == "archlinux" ]]; then
     sudo -u postgres initdb -D '/var/lib/postgres/data'
+elif [[ "$DISTRO" == "opensuse" ]]; then
+    sudo -u postgres initdb -D '/var/lib/pgsql/data'
 else
     sudo -u postgres postgresql-setup initdb
 fi

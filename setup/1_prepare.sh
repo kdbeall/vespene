@@ -9,6 +9,11 @@ if [ "$DISTRO" == "redhat" ]; then
     yum -y install epel-release
     yum -y install gcc python36 python36-devel postgresql supervisor
     python36 -m ensurepip
+elif [ "$DISTRO" == "opensuse" ]; then
+    zypper addrepo http://download.opensuse.org/repositories/server:database:postgresql/openSUSE_Tumbleweed/ PostgreSQL
+    zypper refresh
+    zypper install -y gcc python python-pip python3 python3-pip python3-setuptools postgresql postgresql-server postgresql-contrib
+    /usr/bin/python -m pip install supervisor
 elif [ "$DISTRO" == "ubuntu" ]; then
     apt-add-repository universe
     apt-get update
